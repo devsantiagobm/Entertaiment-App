@@ -3,8 +3,13 @@ import GenresList from "components/GenresList"
 import Grid from "components/Grid"
 import GridItem from "components/GridItem"
 import Layout from "components/Layout"
+import Error from "components/Error";
 
-export default function Movies({ movies }) {
+export default function Movies({ movies, success }) {
+    if (!success) return <Error />
+
+
+
     return (
         <Layout title={"Movies"}>
             <div className="movies">
@@ -12,7 +17,7 @@ export default function Movies({ movies }) {
                 <GenresList list={MOVIES_GENRES} category="movies" />
                 <Grid>
                     {
-                        movies.map(movie => {
+                        movies?.map(movie => {
                             return (
                                 <GridItem key={movie.id} element={movie} category="movie"></GridItem>
                             )
