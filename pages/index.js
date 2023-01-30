@@ -20,9 +20,8 @@ export default function Home({ trending, popularMovies, popularTv, favoriteMovie
    )
 }
 
-export async function getStaticProps() {
+export async function getStaticProps(a) {
    try {
-
       const urls = ["trending", "movies/popular", "tv/popular", "movies/favorite", "tv/favorite"]
       const response = await Promise.all(useFetches(urls, true))
       const data = propsAdapter(response)

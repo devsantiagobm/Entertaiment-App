@@ -4,7 +4,7 @@
     margin: 10vh 0 5vh;
     padding: 0;
     max-width: calc(100%  - var(--nav-width));
-    @include mixins.flexbox(column, 16px);
+    @include mixins.flexbox(column, 16px, flex-start, center);
 
     &__form {
         background-color: var(--primary);
