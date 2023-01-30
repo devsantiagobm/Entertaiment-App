@@ -1,0 +1,27 @@
+@use '../abstracts/mixins';
+
+.att {
+    width: calc(100% - var(--nav-width));
+    font-size: .8rem;
+    color: var(--color-dark);
+
+    &__box {
+        @include mixins.flexbox(column, 8px, center, center);
+        margin: 0 auto;
+    }
+
+    &__image {
+        max-width: 180px;
+        height: auto;
+    }
+
+    &__link {
+        display: block;
+    }
+}
+
+@mixin att-812px {
+    .att {
+        max-width: calc(100% - var(--space));
+    }
+}

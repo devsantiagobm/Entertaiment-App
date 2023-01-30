@@ -1,0 +1,30 @@
+@use "../abstracts/mixins";
+
+.loader {
+    width: 100%;
+    @include mixins.center();
+
+    &__shape {
+        $size: 24px;
+        width: $size;
+        height: $size;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        display: inline-block;
+        border-top: 2px solid var(--color);
+        border-right: 2px solid transparent;
+        box-sizing: border-box;
+        animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+}

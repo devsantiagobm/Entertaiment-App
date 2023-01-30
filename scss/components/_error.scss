@@ -1,0 +1,17 @@
+@use '../abstracts/mixins';
+
+.error {
+    width: calc(100% - var(--nav-width));
+    min-height: 70vh;
+    @include mixins.center();
+
+    &__box {
+        @include mixins.flexbox(column, 16px, center, center);
+        margin: 0 auto;
+
+    }
+
+    &__image {
+        width: 120px;
+    }
+}

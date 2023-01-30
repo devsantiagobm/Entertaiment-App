@@ -1,0 +1,150 @@
+@use '../abstracts/mixins';
+
+.nav {
+    position: relative;
+    z-index: 1;
+    min-width: 0;
+
+    &__box {
+        @include mixins.flexbox(column, 0, space-between, center);
+        max-width: var(--nav-width);
+        min-width: var(--nav-width);
+        width: var(--nav-width);
+        position: sticky;
+        top: 5vh;
+        background-color: var(--primary);
+        min-height: calc(100vh - 5vh * 2); // 5vh is the padding that have the box parent
+        padding: 20px 16px;
+        border-radius: 16px;
+    }
+
+    &__icon-main {
+        font-size: 2rem;
+        color: var(--complementary);
+    }
+
+
+    &__links {
+        @include mixins.flexbox(column, 20px, center, center);
+        font-size: 1.4rem;
+    }
+
+    &__link {
+        color: var(--color-dark);
+        cursor: pointer;
+
+        &:hover {
+            color: var(--complementary);
+        }
+
+        &--active {
+            color: var(--color);
+
+        }
+
+        transition: color .2s ease;
+    }
+
+
+    &__profile {
+        aspect-ratio: 1;
+        border-radius: 50%;
+        overflow: hidden;
+        border: solid 2px var(--color);
+        cursor: pointer;
+    }
+
+    &__user-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__log-in {
+        font-size: 1.5rem;
+        width: 100%;
+        aspect-ratio: 1;
+        height: auto;
+        @include mixins.center();
+        border-radius: 50%;
+        transition: background-color .2s ease;
+        cursor: pointer;
+        background-color: var(--primary);
+
+        &:hover {
+            background-color: var(--primary-hover);
+        }
+    }
+
+    &__link,
+    &__icon-main {
+        @include mixins.center();
+    }
+
+    &__user-options {
+        position: absolute;
+        left: calc(100% + 16px);
+        bottom: 10px;
+        border-radius: 8px;
+        background-color: var(--primary);
+        overflow: hidden;
+    }
+
+    &__user-link {
+        width: 100%;
+        padding: 8px 20px;
+        text-align: center;
+        transition: background-color .2s ease;
+        white-space: nowrap;
+        text-transform: capitalize;
+        cursor: pointer;
+
+        &:hover {
+            background-color: var(--primary-hover);
+        }
+
+    }
+}
+
+
+@mixin nav-1072px() {
+    .nav {
+        width: 100%;
+
+        &__box {
+            width: 100%;
+            max-width: calc(100% - var(--space));
+            min-width: 0;
+            flex-direction: row;
+            min-height: 0;
+            top: 3vh;
+            padding: 16px 24px;
+
+            &>* {
+                min-height: 100%;
+            }
+        }
+
+        &__log-in {
+            width: 32px;
+        }
+
+        &__links {
+            flex-direction: row;
+            align-items: center;
+            height: 100%;
+        }
+
+
+        &__user-options {
+            position: absolute;
+            left: unset;
+            right: 0;
+            bottom: unset;
+            top: calc(100% + 16px);
+            border-radius: 8px;
+            background-color: var(--primary);
+            overflow: hidden;
+        }
+    }
+}

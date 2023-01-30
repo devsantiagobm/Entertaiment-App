@@ -1,0 +1,114 @@
+@use '../abstracts/mixins';
+
+.form {
+    width: calc(100% - var(--nav-width));
+    @include mixins.center();
+    min-height: 70vh;
+    position: relative;
+
+
+    &__box {
+        width: clamp(300px, 25vw, 450px);
+        background-color: var(--primary);
+        padding: 32px 24px;
+        border-radius: 12px;
+        @include mixins.flexbox(column, 24px);
+        position: relative;
+    }
+
+    &__title {
+        font-size: 1.4rem;
+        text-transform: capitalize;
+        line-height: 1rem;
+        margin: 0 0 8px;
+    }
+
+    &__inputs {
+        width: 100%;
+        @include mixins.flexbox(column, 16px);
+    }
+
+    &__input {
+
+        &::placeholder {
+            color: var(--color-dark);
+            font-size: .9rem;
+        }
+    }
+
+    &__label {
+        --underline-h: 2px;
+        cursor: text;
+        display: block;
+        position: relative;
+        padding: 8px 8px;
+        width: 100%;
+        border-bottom: var(--color-light) var(--underline-h) solid;
+        
+        &.form__label--error::after{
+            opacity: 1;
+        }
+
+        &::after{
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: var(--underline-h);
+            bottom: calc(var(--underline-h) * -1);
+            left: 0;
+            z-index: 1;
+            opacity: 0;
+            background-color: var(--complementary);
+            transition: opacity .2s ease;
+        }
+    }
+
+  
+
+    &__submit{
+        width: 100%;
+        background-color: var(--complementary);
+        padding: 10px;
+        border-radius: 6px;
+        font-size: .9rem;
+        cursor: pointer;
+        transition: background-color .3s ease;
+
+        &:hover{
+            background-color: var(--complementary-hover);
+        }
+    }
+
+    &__message{
+        @include mixins.flexbox(row, 4px, center, center);
+        font-size: .9rem;
+    }
+
+    &__link{
+        color: var(--complementary);
+
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+
+    &__advice{
+        color: var(--complementary);
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: calc(100%  + 16px);
+        white-space: nowrap;
+    }
+}
+
+@mixin form-1072px{
+    .form{
+        width: calc(100% - var(--space));
+
+        &__box{
+            width: 100%;
+            max-width: 400px;
+        }
+    }
+}

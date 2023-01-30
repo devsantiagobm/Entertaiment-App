@@ -1,0 +1,7 @@
+@use "./forward" as *;
+
+@media screen and (max-width: 812px){
+    @include film-812px();
+    @include att-812px();
+    @include carrousel-812px();
+}

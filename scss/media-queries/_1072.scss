@@ -1,0 +1,9 @@
+@use "./forward" as *;
+
+@media screen and (max-width: 1072px){
+    @include nav-1072px();
+    @include base-1072px();
+    @include film-1072px();
+    @include reviews-1072px();
+    @include form-1072px();
+}

@@ -1,0 +1,6 @@
+@use "../abstracts/mixins";
+
+.home{
+    @include mixins.flexbox(column, 32px);
+    margin: 0 0 8vh;
+}

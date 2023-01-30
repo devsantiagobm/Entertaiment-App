@@ -1,0 +1,15 @@
+@use "../abstracts/mixins";
+
+
+.main-button {
+    @include mixins.flexbox(row, 8px, center, center);
+    padding: 12px 32px;
+    font-size: .9rem;
+    background-color: var(--color-dark);
+    border-radius: 6px;
+    transition: filter .2s ease;
+
+    &:hover {
+        filter: brightness(110%);
+    }
+}

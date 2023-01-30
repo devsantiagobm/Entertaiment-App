@@ -1,0 +1,202 @@
+@use "../abstracts/mixins";
+
+
+.film {
+    max-width: 100%;
+    padding: 0 5vh 0;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-areas: "image image image info info info info info info";
+    column-gap: 64px;
+
+    &__column {
+        grid-area: image;
+        width: 100%;
+        position: relative;
+        min-height: 100%;
+    }
+
+    &__picture {
+        display: block;
+        border-radius: 10px;
+        overflow: hidden;
+        position: sticky;
+        top: 5vh;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 0.65 / 1;
+    }
+
+    &__information {
+        @include mixins.flexbox(column, 8px);
+        // overflow: hidden;
+    }
+
+    &__poster {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    &__information {
+        grid-area: info;
+    }
+
+    &__name {
+        font-size: 3rem;
+    }
+
+    &__tagline {
+        color: var(--color-dark);
+    }
+
+    &__votes {
+        @include mixins.flexbox(row, 8px, flex-start, center);
+        font-size: 1.3rem;
+    }
+
+    &__vote-average {
+        font-size: 2.5rem;
+    }
+
+    &__genres,
+    &__synopsis {
+        @include mixins.flexbox(column, 12px);
+    }
+
+    &__genres {
+        margin: 16px 0;
+    }
+
+    &__subtitle {
+        font-size: 1.1rem;
+        text-transform: capitalize;
+        color: var(--color);
+    }
+
+    &__synopsis {
+        color: var(--color-dark);
+    }
+
+    &__buttons {
+        @include mixins.flexbox(row, 24px, flex-start, center);
+        margin: 32px 0;
+    }
+
+    &__links {
+        @include mixins.flexbox(row, 8px, flex-start, center);
+        padding: 12px 32px;
+        font-size: .9rem;
+        background-color: var(--color-dark);
+        border-radius: 6px;
+        transition: filter .2s ease;
+
+        &:hover {
+            filter: brightness(110%);
+        }
+    }
+
+    &__link-icon {
+        font-size: 1.2rem;
+    }
+
+    &__carrousel {
+        margin: 24px 0 0;
+    }
+
+    &__stars {
+        unicode-bidi: bidi-override;
+        color: #ccc;
+        font-size: 1.5rem;
+        position: relative;
+        margin: 0;
+        padding: 0;
+        user-select: none;
+
+    }
+
+    &__stars-fill {
+        color: var(--color);
+        padding: 0;
+        position: absolute;
+        z-index: 1;
+        display: block;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+
+        span {
+            display: inline-block;
+        }
+    }
+
+    &__stars-empty {
+        padding: 0;
+        display: block;
+        z-index: 0;
+        color: var(--color-dark);
+    }
+
+
+    &__meta-information {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        margin: 12px 0;
+        text-transform: capitalize;
+    }
+
+    &__meta-column {
+        @include mixins.flexbox(column, 6px)
+    }
+
+    &__meta-subtitle {
+        font-size: 1rem;
+        color: var(--color-light);
+    }
+
+    &__meta-data {
+        font-size: .9rem;
+        color: var(--color);
+    }
+}
+
+@mixin film-1072px {
+    .film {
+        padding: 0;
+        column-gap: 32px;
+    }
+}
+
+@mixin film-812px {
+    .film {
+        @include mixins.flexbox(column, 32px);
+
+        &__column {
+            @include mixins.center();
+        }
+
+        &__picture {
+            width: clamp(350px, 30vw, 450px);
+
+        }
+
+        &__column,
+        &__meta-information,
+        &__synopsis, 
+        &__buttons {
+            max-width: calc(100% - var(--space));
+        }
+
+
+        &__buttons {
+            justify-content: center;
+
+        }
+
+        &__meta-information {
+            grid-template-columns: repeat(2, 1fr);
+            row-gap: 16px;
+        }
+    }
+}

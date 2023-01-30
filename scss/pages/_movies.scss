@@ -1,0 +1,13 @@
+@use '../abstracts/mixins';
+
+.movies {
+    padding: 0 var(--space) 0 0;
+    @include mixins.flexbox(column, 16px);
+
+    &__title {
+        font-size: 1.4rem;
+        text-transform: capitalize;
+    }
+
+ 
+}

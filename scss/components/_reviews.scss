@@ -1,0 +1,126 @@
+@use "../abstracts/mixins";
+
+.reviews {
+    margin: 10vh 0 5vh;
+    padding: 0;
+    max-width: calc(100%  - var(--nav-width));
+    @include mixins.flexbox(column, 16px);
+
+    &__form {
+        background-color: var(--primary);
+        padding: 24px;
+        border-radius: 8px;
+        @include mixins.flexbox(column, 12px);
+
+    }
+
+    &__form-title {
+        font-size: 1.1rem;
+    }
+
+    &__list{
+        font-size: 1.4rem;
+    }
+
+    &__input {
+        border-radius: 8px;
+        padding: 12px 16px;
+        word-wrap: break-word;
+        word-break: break-all;
+        background-color: var(--primary-dark);
+        min-height: 8ch;
+        position: relative;
+        cursor: text;
+
+        &::before {
+            content: "What do you think?";
+            position: absolute;
+            top: 14px;
+            left: 16px;
+            opacity: 0;
+            font-size: .85rem;
+            color: var(--color-light);
+        }
+
+        &:empty::before {
+            opacity: 1;
+        }
+    }
+
+    &__form-box {
+        @include mixins.flexbox(row, 0, flex-end);
+        margin: 8px 0 0;
+    }
+
+    &__submit {
+        background-color: var(--complementary);
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: .9rem;
+        cursor: pointer;
+        transition: background-color .3s ease;
+
+        &:hover {
+            background-color: var(--complementary-hover);
+        }
+    }
+
+
+    &__list {
+        background-color: var(--primary);
+        padding: 24px 24px 32px;
+        border-radius: 8px;
+    }
+
+
+    &__list, &__form{
+        width: calc(100%);
+        max-width: 600px;
+    }
+
+}
+
+
+.review {
+    @include mixins.flexbox(row, 16px, flex-start, flex-start);
+    border-bottom: solid 1px var(--color-light);
+    padding: 16px 0;
+
+    &:first-child{
+        padding:  0 0 16px;
+    }
+    
+    &:last-child{
+        padding:  16px 0 0;
+        border-bottom: none;
+    }
+
+    &__picture {
+        display: block;
+        aspect-ratio: 1;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    &__information {
+        @include mixins.flexbox(column, 4px);
+    }
+
+    &__email {
+        font-size: 1.1rem;
+    }
+
+    &__description {
+        font-size: .9rem;
+        font-weight: var(--w-light);
+        color: var(--color-light);
+    }
+}
+
+@mixin reviews-1072px{
+    .reviews{
+        max-width: calc(100% - var(--space));
+    }
+}

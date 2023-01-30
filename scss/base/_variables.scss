@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&display=swap");
+
+:root{
+    --w-light: 300;
+    --w-regular: 400;
+    --w-bold: 700;
+
+    --primary: #161d2f;
+    --primary-hover: hsl(223, 36%, 18%);
+    --primary-dark: #10141e;
+    
+    --color: #fff;
+    --color-light: #ccc;
+    --color-dark: #5a698f;
+    
+    --complementary: #fc4747;
+    --complementary-hover: hsl(0, 97%, 67%);
+
+    --error: hsl(4, 100%, 49%);
+
+
+    --nav-width: clamp(64px, 5vw, 72px);
+
+}
