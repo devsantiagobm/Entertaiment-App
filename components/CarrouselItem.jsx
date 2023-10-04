@@ -8,8 +8,8 @@ export default function CarrouselItem({ item }) {
 
     return (
         <>
-
-            <Image
+            {/*Before the component used the Image component, but it was wasting my usage from free tier in vercel*/}
+            <img
                 src={image}
                 className="carrousel__item-bg"
                 draggable="false"
